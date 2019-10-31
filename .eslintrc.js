@@ -3,12 +3,15 @@ module.exports = {
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jest/globals": true
     },
     "extends": [
         "eslint:recommended",
         "prettier",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:jest/recommended",
+        "plugin:jest/style"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -25,6 +28,7 @@ module.exports = {
     "plugins": [
         "babel",
         "react",
+        "jest"
     ],
     "rules": {
         "indent": [
