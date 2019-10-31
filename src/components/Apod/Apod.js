@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-const timeZone = 'America/Los_Angeles';
+import { toFormattedDate, todayInCorrectTimeZone } from './utils';
 
 class Apod extends Component {
-  juan = 0;
   apodBaseUrl = 'https://api.nasa.gov/planetary/apod';
   key = process.env.REACT_APP_NASA_API_TOKEN;
 
@@ -20,31 +18,14 @@ class Apod extends Component {
         date: '',
         media_type: '',
       },
-      selectedDate: this.toFormattedDate(this.props.date),
+      selectedDate: toFormattedDate(this.props.date),
     };
-  }
-
-  toFormattedDate(date) {
-    if (date instanceof Date) {
-      return date.toLocaleDateString('se-sv');
-    } else if (typeof date === 'string') {
-      const pattern = /^[0-9]{4}-[0-9]{2}-[0-9]{2}/;
-      if (pattern.test(date)) {
-        return date;
-      }
-      try {
-        const ddate = new Date(date);
-        return this.toFormattedDate(ddate);;
-      } catch (err) {
-        console.error(err);
-      }
-    }
   }
 
   fetchImageData(date) {
     let image = {...this.state.image};
-    console.debug('FETCHING', this.toFormattedDate(date));
-    const formattedDate = this.toFormattedDate(date);
+    console.debug('FETCHING', toFormattedDate(date));
+    const formattedDate = toFormattedDate(date);
     let imageData = fetch(`${this.apodBaseUrl}?api_key=${this.key}&date=${formattedDate}`)
       .then(res => res.json())
       .then(res => {
@@ -99,12 +80,13 @@ class Apod extends Component {
 }
 
 Apod.defaultProps = {
-  date: (new Date()).toLocaleDateString('se-sv', {timeZone: timeZone}),
+  date: todayInCorrectTimeZone,
 };
 
 Apod.propTypes = {
   date: PropTypes.oneOfType([
     PropTypes.instanceOf(Date),
+    PropTypes.string,
   ])
 };
 
