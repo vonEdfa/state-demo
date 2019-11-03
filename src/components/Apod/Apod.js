@@ -67,9 +67,11 @@ class Apod extends Component {
   }
 
   dateCallback = selectedDate => {
-    this.setState({
-      selectedDate,
-    });
+    if (utils.isValidAposDate(selectedDate)) {
+      this.setState({
+        selectedDate,
+      });
+    }
   }
 
   render() {
