@@ -25,7 +25,6 @@ class ApodMedia extends Component {
 
   fetchImageData(date) {
     let image = {...this.state.image};
-    console.debug('FETCHING', toFormattedDate(date));
     const formattedDate = toFormattedDate(date);
     let imageData = fetch(`${this.apodBaseUrl}?api_key=${this.key}&date=${formattedDate}`)
       .then(res => res.json())

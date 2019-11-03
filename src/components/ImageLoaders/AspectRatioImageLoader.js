@@ -24,7 +24,7 @@ class Image extends Component {
     };
   
     this.defaultStyle = {
-      transition: '1s ease-in-out',
+      transition: '0.5s ease-in-out',
       backgroundColor: 'rgba(0, 0, 0, 0.2)',
     };
   }
