@@ -27,13 +27,4 @@ describe('App', () => {
     expect(errors).toHaveLength(0);
   });
 
-  it('snapshot renders', () => {
-    let root = null;
-    domAct(() => {
-      testAct(() => {
-        root = create(<App />);
-      });
-    });
-    expect(root).toMatchSnapshot();
-  });
 });

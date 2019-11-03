@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { toFormattedDate, todayInCorrectTimeZone } from './utils';
+import Image from '../ImageLoaders/AspectRatioImageLoader';
 
-class Apod extends Component {
+class ApodMedia extends Component {
   apodBaseUrl = 'https://api.nasa.gov/planetary/apod';
   key = process.env.REACT_APP_NASA_API_TOKEN;
 
@@ -68,9 +69,12 @@ class Apod extends Component {
   render() {
     return (
       <>
-        <h1>APOD</h1>
         { this.state.image.media_type === 'image' ? (
-          <img src={this.state.image.url} alt={this.state.image.title} />
+          <Image
+            src={this.state.image.url}
+            alt={this.state.image.title}
+            width="40%"
+          />
         ) : (
           this.state.image.media_type
         ) }
@@ -79,15 +83,15 @@ class Apod extends Component {
   }
 }
 
-Apod.defaultProps = {
+ApodMedia.defaultProps = {
   date: todayInCorrectTimeZone,
 };
 
-Apod.propTypes = {
+ApodMedia.propTypes = {
   date: PropTypes.oneOfType([
     PropTypes.instanceOf(Date),
     PropTypes.string,
   ])
 };
 
-export default Apod;
+export default ApodMedia;

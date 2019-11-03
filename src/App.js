@@ -4,7 +4,7 @@ import 'date-fns';
 import React, { Component } from 'react';
 import './App.css';
 // import logo from './logo.svg';
-import Apod from './components/Apod/Apod';
+import ApodMedia from './components/Apod/ApodMedia';
 import { todayInCorrectTimeZone } from './components/Apod/utils';
 import DatePicker from './components/DatePicker/DatePicker';
 
@@ -32,8 +32,9 @@ class App extends Component {
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <header className="App-header">
             {/* <img src={logo} className="App-logo" alt="logo" /> */}
+            <h1>NASA APOD Image Browser</h1>
             <DatePicker parentCallback={this.dateCallback} maxDate={this.apodSafeToday} />
-            <Apod date={this.state.selectedDate} />
+            <ApodMedia date={this.state.selectedDate} />
           </header>
         </MuiPickersUtilsProvider>
       </div>
