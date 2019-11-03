@@ -5,6 +5,7 @@ import { act as testAct, create } from 'react-test-renderer';
 import App from './App';
 
 let container = null;
+
 beforeEach(() => {
   container = document.createElement('div');
   document.body.appendChild(container);

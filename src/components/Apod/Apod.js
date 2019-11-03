@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import ApodMedia from './ApodMedia';
-import { todayInCorrectTimeZone } from './utils';
+import * as utils from './utils';
 import DatePicker from '../DatePicker/DatePicker';
 
 class Apod extends Component {
 
-  apodSafeToday = todayInCorrectTimeZone;
+  apodSafeToday = utils.todayInCorrectTimeZone;
+  apodMinDate = utils.minSupportedDate;
+  apodMaxDate = utils.maxSupportedDate;
 
   constructor(props) {
     super(props);
@@ -41,7 +43,8 @@ class Apod extends Component {
           >
             <DatePicker
               parentCallback={this.dateCallback}
-              maxDate={this.apodSafeToday}
+              maxDate={this.apodMaxDate}
+              minDate={this.apodMinDate}
             />
           </div>
         </div>

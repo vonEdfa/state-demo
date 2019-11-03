@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { toFormattedDate, todayInCorrectTimeZone } from './utils';
+import { toFormattedDate, todayInCorrectTimeZone, isValidDateFormat } from './utils';
 import Image from '../ImageLoaders/AspectRatioImageLoader';
 
 class ApodMedia extends Component {
@@ -58,7 +58,7 @@ class ApodMedia extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.date !== prevState.selectedDate) {
+    if (nextProps.date !== prevState.selectedDate && isValidDateFormat(toFormattedDate(nextProps.date))) {
       return { selectedDate: nextProps.date };
     } else {
       return null;

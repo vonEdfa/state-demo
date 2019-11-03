@@ -24,6 +24,7 @@ class DatePicker extends Component {
         variant="inline"
         format="yyyy-MM-dd"
         maxDate={this.props.maxDate}
+        minDate={this.props.minDate}
         margin="normal"
         id="date-picker-inline"
         label="Pick a date"
@@ -40,7 +41,8 @@ class DatePicker extends Component {
 
 DatePicker.defaultProps = {
   parentCallback: () => null,
-  maxDate: new Date(),
+  maxDate: null,
+  minDate: null,
 };
 
 DatePicker.propTypes = {
@@ -49,6 +51,10 @@ DatePicker.propTypes = {
     PropTypes.instanceOf(Date),
     PropTypes.string,
   ]),
+  minDate: PropTypes.oneOfType([
+    PropTypes.instanceOf(Date),
+    PropTypes.string,
+  ])
 };
 
 export default DatePicker;
