@@ -19,6 +19,6 @@ h1 {
   height: 40vmin;
 }
 
-.App-link {
+.App-link, a, a:visited {
   color: #09d3ac;
 }
