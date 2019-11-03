@@ -16,7 +16,7 @@ const ApodMedia = ({ media_type, title, url }) => {
   case 'video':
     return (
       <div style={{display: 'block'}}>
-        <p>Support for videos coming soon! :3</p><br />
+        <p>Support for videos coming soon! :3</p>
         <a href={url}>Meanwhile, visit the video here!</a>
       </div>
     );
