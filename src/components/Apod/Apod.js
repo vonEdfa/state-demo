@@ -28,8 +28,6 @@ class Apod extends Component {
       },
       selectedDate: this.apodSafeToday,
     };
-
-    console.log('TODAY vs MAX', utils.todayInCorrectTimeZone, utils.maxSupportedDate);
   }
 
   fetchImageData(date) {
@@ -88,11 +86,13 @@ class Apod extends Component {
             justifyContent: 'center',
           }}
         >
-          <ApodMedia
-            media_type={this.state.data.media_type}
-            title={this.state.data.title}
-            url={this.state.data.url}
-          />
+          {this.state.data && 
+            <ApodMedia
+              media_type={this.state.data.media_type}
+              title={this.state.data.title}
+              url={this.state.data.url}
+            />
+          }
           <div
             style={{
               width: '25%',
