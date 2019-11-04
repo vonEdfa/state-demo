@@ -8,7 +8,7 @@ class DatePicker extends Component {
     super(props);
 
     this.state = {
-      date: new Date(),
+      date: this.props.initialDate,
     };
   }
 
@@ -41,12 +41,17 @@ class DatePicker extends Component {
 
 DatePicker.defaultProps = {
   parentCallback: () => null,
+  initialDate: new Date(),
   maxDate: null,
   minDate: null,
 };
 
 DatePicker.propTypes = {
   parentCallback: PropTypes.func,
+  initialDate: PropTypes.oneOfType([
+    PropTypes.instanceOf(Date),
+    PropTypes.string,
+  ]),
   maxDate: PropTypes.oneOfType([
     PropTypes.instanceOf(Date),
     PropTypes.string,

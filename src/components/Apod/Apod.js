@@ -28,6 +28,8 @@ class Apod extends Component {
       },
       selectedDate: this.apodSafeToday,
     };
+
+    console.log('TODAY vs MAX', utils.todayInCorrectTimeZone, utils.maxSupportedDate);
   }
 
   fetchImageData(date) {
@@ -67,7 +69,7 @@ class Apod extends Component {
   }
 
   dateCallback = selectedDate => {
-    if (utils.isValidAposDate(selectedDate)) {
+    if (utils.isValidAposDate(selectedDate) && this.state.selectedDate !== selectedDate) {
       this.setState({
         selectedDate,
       });
@@ -98,6 +100,7 @@ class Apod extends Component {
           >
             <DatePicker
               parentCallback={this.dateCallback}
+              initialDate={this.state.selectedDate}
               maxDate={this.apodMaxDate}
               minDate={this.apodMinDate}
             />
