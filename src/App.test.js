@@ -18,8 +18,10 @@ afterEach(() => {
 });
 
 describe('App', () => {
+  
   it('renders without errors', () => {
     const errors = [];
+    console.error = jest.fn(err => errors.push(err));
     try {
       ReactDOM.render(<App />, container);
     } catch (error) {

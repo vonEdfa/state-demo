@@ -28,6 +28,7 @@ describe('Apod', () => {
 
     it('renders without errors', () => {
       const errors = [];
+      console.error = jest.fn(err => errors.push(err));
       try {
         domAct(() => {
           ReactDOM.render(
@@ -49,10 +50,11 @@ describe('Apod', () => {
 
     it('renders without errors', () => {
       const errors = [];
+      console.error = jest.fn(err => errors.push(err));
       try {
         domAct(() => {
           ReactDOM.render(
-            <ApodMedia date="2019-10-31" />,
+            <ApodMedia media_type='image' url="https://apod.nasa.gov/apod/image/1910/ghostlyVeilNebula1034.jpg" />,
             container
           );
         });
@@ -60,6 +62,7 @@ describe('Apod', () => {
         errors.push(error);
       }
       expect(errors).toStrictEqual([]);
+      expect(console.error).toHaveBeenCalledTimes(0);
     });
 
   });
@@ -68,6 +71,7 @@ describe('Apod', () => {
 
     it('renders without errors', () => {
       const errors = [];
+      console.error = jest.fn(err => errors.push(err));
       try {
         domAct(() => {
           ReactDOM.render(
