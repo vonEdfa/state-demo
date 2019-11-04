@@ -1,4 +1,4 @@
-export const timeZone = 'America/Los_Angeles';
+export const timeZone = 'America/New_York';
 export const regexPattern = /^(([1-2][0-9]{3})-(0[1-9]|[1][0-2])-(0[1-9]|[12][0-9]|3[01]))$/;
 export const minSupportedDate = new Date(1995, 5, 16);
 export const todayInCorrectTimeZone = (new Date()).toLocaleDateString('se-sv', {timeZone: timeZone});
