@@ -62,19 +62,6 @@ exports[`Apod ApodImage component snapshot renders 1`] = `
           />
         </svg>
       </div>
-      <img
-        alt="Loading..."
-        src=""
-        style={
-          Object {
-            "fontSize": "0.5em",
-            "height": "auto",
-            "opacity": 0.5,
-            "transition": "1s ease-in-out",
-            "width": "100%",
-          }
-        }
-      />
     </div>
   </div>
 </div>

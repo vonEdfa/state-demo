@@ -84,7 +84,7 @@ class Image extends Component {
                       zIndex: 1000
                     }}
                   />
-                  <img
+                  <Img
                     src={this.state.prevImg}
                     alt="Loading..."
                     style={{
